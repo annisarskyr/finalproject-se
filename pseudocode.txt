@@ -1,0 +1,31 @@
+PROGRAM ShoppingCart
+
+READ AND WRITE "listProduct" with LIST
+READ AND WRITE "selectedProduct" with RECORD
+READ AND WRITE "quantity" with NUMBER
+READ AND WRITE "stock" with NUMBER
+
+PROCEDURE listProduct()
+BEGIN PROCEDURE
+    DISPLAY "selectedProduct"
+    INPUT "selectedProduct"
+    RETURN "selectedProduct"
+END PROCEDURE
+
+INPUT "selectedProduct"
+
+IF "selectedProduct" AVAILABLE
+    INPUT "quantity"
+ELSE 
+    CALL listProduct()
+
+IF "quantity" less than or equal "stock"
+    STORE "selectedProduct" 
+ELSE
+    INPUT "quantity" 
+
+PROCEDURE productsTotal (selectedProduct, quantity)
+BEGIN PROCEDURE
+    STORE "totalProduct" with "selectedProduct" times "quantity"
+    PRINT "totalProduct"
+END PROCEDURE
